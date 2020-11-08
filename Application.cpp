@@ -4,7 +4,13 @@
 
 Application::Application()
 {
-
+	this->loadTestFile("test11.txt");
+	//this->printSavedMatrix();
+	
+	bf = new BruteForce(inputMatrix);
+	bf->startAlgorithm();
+	//cout << "FINAL PATH: ";
+	//printQueue(bf->bestPath);
 }
 
 void Application::loadTestFile(string filePath)
@@ -34,4 +40,14 @@ void Application::printSavedMatrix()
 			cout << inputMatrix(iii, jjj) << " ";
 		cout << endl;
 	}
+}
+
+void Application::printQueue(deque<int> input)
+{
+	while (!input.empty())
+	{
+		cout << input.front() << " ";
+		input.pop_front();
+	}
+	cout << endl;
 }
